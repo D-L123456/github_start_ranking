@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 星榜 Top 100</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>
+                    <span class="icon">★</span> GitHub 星榜 Top 100
+                </h1>
+                <div class="header-right">
+                    <span id="update-time" class="update-time"></span>
+                    <button id="btn-refresh" class="btn btn-refresh" title="强制刷新">↻ 刷新</button>
+                </div>
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <span class="filter-label">时间范围：</span>
+                    <div class="btn-group" id="since-group">
+                        <button class="btn btn-filter active" data-since="daily">今日</button>
+                        <button class="btn btn-filter" data-since="weekly">本周</button>
+                        <button class="btn btn-filter" data-since="monthly">本月</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">语言：</span>
+                    <select id="lang-select" class="select-filter">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">搜索：</span>
+                    <input type="text" id="search-input" class="search-input" placeholder="搜索项目名或描述...">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>正在获取 GitHub 热门项目...</p>
+            </div>
+            <div id="error" class="error" style="display:none">
+                <p>加载失败，请稍后重试</p>
+            </div>
+            <div id="repo-list" class="repo-list"></div>
+        </main>
+
+        <footer>
+            <p>数据来源：<a href="https://github.com/trending" target="_blank">GitHub Trending</a> | 缓存每 2 小时自动更新 | 打开页面时自动刷新</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
